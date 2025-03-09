@@ -1,0 +1,2283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form_Crypto</class>
+ <widget class="QMainWindow" name="Form_Crypto">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1033</width>
+    <height>924</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>cryptocurrency</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../icon/gno.png</normaloff>../../icon/gno.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QScrollBar:vertical {  
+    background-color:rgb(139, 211, 217) ;            /* Background color */  
+    width: 14px;                    /* Width of the scrollbar */  
+    border:none;  
+	border-radius: 0px;
+	    /* Border styling */  
+}  
+
+QScrollBar::handle:vertical {  
+    background-color:rgb(0, 150, 136);            /* Color of the scrollbar handle */  
+    min-height: 10px;               /* Minimum height of the handle */  
+	border-radius:2px;
+}  
+QScrollBar::handle:vertical:hover {  
+    background-color: rgb(0, 194, 175);            /* Color of the scrollbar handle */  
+    
+}  
+QScrollBar::handle:vertical:pressed{  
+    background-color:rgb(0, 150, 136);            /* Color of the scrollbar handle */  
+}  
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color:rgb(0, 126, 113);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(0, 170, 153);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color:rgb(0, 126, 113);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color:rgb(0, 126, 113);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(0, 170, 153);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color:rgb(0, 126, 113);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+
+/*                                  */
+
+
+QScrollBar:horizontal {  
+    background-color: rgb(139, 211, 217);            /* Background color */  
+    height: 14px;                   /* Height of the scrollbar */  
+    border: none;  
+    border-radius: 0px;            /* Border styling */  
+}  
+
+QScrollBar::handle:horizontal {  
+    background-color:rgb(0, 150, 136);            /* Color of the scrollbar handle */  
+    min-width: 30px;               /* Minimum width of the handle */  
+    border-radius: 2px;  
+}  
+
+QScrollBar::handle:horizontal:hover {  
+    background-color:  rgb(0, 194, 175);            /* Color of the scrollbar handle when hovered */  
+}  
+
+QScrollBar::handle:horizontal:pressed {  
+    background-color:rgb(0, 150, 136);            /* Color of the scrollbar handle when pressed */  
+}  
+
+/* BTN LEFT - SCROLLBAR */  
+QScrollBar::sub-line:horizontal {  
+    border: none;  
+    background-color: rgb(0, 126, 113);  
+    width: 15px;  
+    border-top-left-radius: 7px;  
+    border-bottom-left-radius: 7px;  
+    subcontrol-position: left;  
+    subcontrol-origin: margin;  
+}  
+
+QScrollBar::sub-line:horizontal:hover {  
+    background-color: rgb(0, 194, 175);  
+}  
+
+QScrollBar::sub-line:horizontal:pressed {  
+    background-color: rgb(0, 126, 113);  
+}  
+
+/* BTN RIGHT - SCROLLBAR */  
+QScrollBar::add-line:horizontal {  
+    border: none;  
+    background-color: rgb(0, 126, 113);  
+    width: 15px;  
+    border-top-right-radius: 7px;  
+    border-bottom-right-radius: 7px;  
+    subcontrol-position: right;  
+    subcontrol-origin: margin;  
+}  
+
+QScrollBar::add-line:horizontal:hover {  
+    background-color: rgb(0, 194, 175);  
+}  
+
+QScrollBar::add-line:horizontal:pressed {  
+    background-color: rgb(0, 126, 113);  
+}  
+
+/* RESET ARROWS */  
+QScrollBar::left-arrow:horizontal, QScrollBar::right-arrow:horizontal {  
+    background: none; /* No background for the arrow buttons */  
+}  
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {  
+    background: none; /* No background for the pages */  
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(133, 218, 226);</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="styleSheet">
+       <string notr="true">QScrollBar:vertical{
+border:none;
+background:rgb(135, 219, 226);
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1222</width>
+         <height>1250</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_15">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+color:rgb(0, 124, 112);</string>
+          </property>
+          <property name="text">
+           <string>Wellcome user</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>1200</width>
+            <height>1200</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QScrollArea" name="scrollArea_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>170</y>
+             <width>1081</width>
+             <height>851</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1081</width>
+              <height>851</height>
+             </rect>
+            </property>
+            <widget class="Line" name="line">
+             <property name="geometry">
+              <rect>
+               <x>-10</x>
+               <y>50</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="Line" name="line_3">
+             <property name="geometry">
+              <rect>
+               <x>-10</x>
+               <y>290</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="cardano">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>320</y>
+               <width>101</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Cardano</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../cryptocurrency-icons-master/32/color/chsb.png</normaloff>../../cryptocurrency-icons-master/32/color/chsb.png</iconset>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="tron">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>230</y>
+               <width>101</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Tron</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../icon/usdt.png</normaloff>../../icon/usdt.png</iconset>
+             </property>
+            </widget>
+            <widget class="Line" name="line_5">
+             <property name="geometry">
+              <rect>
+               <x>-10</x>
+               <y>210</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_2">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>70</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout4"/>
+            </widget>
+            <widget class="QCommandLinkButton" name="ethereum">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>70</y>
+               <width>101</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Ethereum</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../eth.png</normaloff>../../eth.png</iconset>
+             </property>
+            </widget>
+            <widget class="Line" name="line_2">
+             <property name="geometry">
+              <rect>
+               <x>-10</x>
+               <y>130</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="tether">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>150</y>
+               <width>101</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Tether</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../icon/tern.png</normaloff>../../icon/tern.png</iconset>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label15">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>80</y>
+               <width>121</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label2">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>80</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label18">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>320</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label3">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>160</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label4">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>240</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label16">
+             <property name="geometry">
+              <rect>
+               <x>220</x>
+               <y>160</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label17">
+             <property name="geometry">
+              <rect>
+               <x>210</x>
+               <y>240</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label5">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>320</y>
+               <width>81</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label20">
+             <property name="geometry">
+              <rect>
+               <x>190</x>
+               <y>480</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="Line" name="line_4">
+             <property name="geometry">
+              <rect>
+               <x>-10</x>
+               <y>530</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="dogcoin">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>390</y>
+               <width>101</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Dogcoin</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../icon/doge.png</normaloff>../../icon/doge.png</iconset>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label19">
+             <property name="geometry">
+              <rect>
+               <x>190</x>
+               <y>400</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label6">
+             <property name="geometry">
+              <rect>
+               <x>100</x>
+               <y>400</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="polkadot">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>470</y>
+               <width>101</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Polkadot</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../cryptocurrency-icons-master/32/color/poly.png</normaloff>../../cryptocurrency-icons-master/32/color/poly.png</iconset>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label7">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>480</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="Line" name="line_6">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>450</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_3">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>150</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout5"/>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_4">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>230</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout6"/>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_6">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>310</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout7"/>
+            </widget>
+            <widget class="Line" name="line_9">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>370</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_7">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>390</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout8"/>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_8">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>470</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout9"/>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_9">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>550</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout10"/>
+            </widget>
+            <widget class="QCommandLinkButton" name="stellar">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>630</y>
+               <width>111</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Stellar</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../cryptocurrency-icons-master/32/color/strat.png</normaloff>../../cryptocurrency-icons-master/32/color/strat.png</iconset>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label9">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>640</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label22">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>640</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_10">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>630</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout11"/>
+            </widget>
+            <widget class="Line" name="line_7">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>610</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label10">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>730</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label23">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>730</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_11">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>720</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout12"/>
+            </widget>
+            <widget class="Line" name="line_8">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>690</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="litecoin">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>720</y>
+               <width>111</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Litecoin</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../cryptocurrency-icons-master/32/color/ltc.png</normaloff>../../cryptocurrency-icons-master/32/color/ltc.png</iconset>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label11">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>810</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label24">
+             <property name="geometry">
+              <rect>
+               <x>200</x>
+               <y>810</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_12">
+             <property name="geometry">
+              <rect>
+               <x>430</x>
+               <y>800</y>
+               <width>651</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout13"/>
+            </widget>
+            <widget class="Line" name="line_10">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>780</y>
+               <width>1201</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+            <widget class="QCommandLinkButton" name="uniswap">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>810</y>
+               <width>111</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+             </property>
+             <property name="text">
+              <string>Uniswap</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../cryptocurrency-icons-master/32/color/uni.png</normaloff>../../cryptocurrency-icons-master/32/color/uni.png</iconset>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label33">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>480</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label36">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>730</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label32">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>400</y>
+               <width>121</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label28">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>80</y>
+               <width>121</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label34">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>560</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label35">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>640</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label29">
+             <property name="geometry">
+              <rect>
+               <x>320</x>
+               <y>160</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label30">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>240</y>
+               <width>101</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label31">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>320</y>
+               <width>91</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label37">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>810</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label21">
+             <property name="geometry">
+              <rect>
+               <x>190</x>
+               <y>560</y>
+               <width>111</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 76, 68);</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_80">
+             <property name="geometry">
+              <rect>
+               <x>670</x>
+               <y>20</y>
+               <width>151</width>
+               <height>20</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+color:rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>Price Over Time</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_81">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>190</y>
+             <width>81</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+color:rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Price</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_90">
+           <property name="geometry">
+            <rect>
+             <x>210</x>
+             <y>180</y>
+             <width>111</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+color:rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Market Cap</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label8">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>730</y>
+             <width>91</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QCommandLinkButton" name="sui">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>720</y>
+             <width>111</width>
+             <height>48</height>
+            </rect>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+           </property>
+           <property name="text">
+            <string>Sui</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../cryptocurrency-icons-master/32/color/soc.png</normaloff>../../cryptocurrency-icons-master/32/color/soc.png</iconset>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_21">
+           <property name="geometry">
+            <rect>
+             <x>530</x>
+             <y>1190</y>
+             <width>161</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <italic>true</italic>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="verticalLayoutWidget_13">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>1060</y>
+             <width>651</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout14"/>
+          </widget>
+          <widget class="QLabel" name="label25">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>1070</y>
+             <width>101</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label12">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>1070</y>
+             <width>91</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QCommandLinkButton" name="pepe">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>1060</y>
+             <width>111</width>
+             <height>48</height>
+            </rect>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+           </property>
+           <property name="text">
+            <string>Pepe</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../cryptocurrency-icons-master/32/color/pre.png</normaloff>../../cryptocurrency-icons-master/32/color/pre.png</iconset>
+           </property>
+          </widget>
+          <widget class="Line" name="line_12">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>1120</y>
+             <width>1201</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QCommandLinkButton" name="aptes">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>1150</y>
+             <width>111</width>
+             <height>48</height>
+            </rect>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {  
+    
+	background-color:rgb(133, 218, 226);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(121, 199, 206);
+}  
+</string>
+           </property>
+           <property name="text">
+            <string>Aptes</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../cryptocurrency-icons-master/32/color/ape.png</normaloff>../../cryptocurrency-icons-master/32/color/ape.png</iconset>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label13">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>1150</y>
+             <width>101</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label26">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>1150</y>
+             <width>101</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="verticalLayoutWidget_14">
+           <property name="geometry">
+            <rect>
+             <x>430</x>
+             <y>1140</y>
+             <width>651</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout15"/>
+          </widget>
+          <widget class="QLabel" name="label38">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>1070</y>
+             <width>111</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label39">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>1150</y>
+             <width>111</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 76, 68);</string>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_91">
+           <property name="geometry">
+            <rect>
+             <x>310</x>
+             <y>180</y>
+             <width>111</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+color:rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>24h volume</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="Line" name="line_11">
+           <property name="geometry">
+            <rect>
+             <x>-20</x>
+             <y>1040</y>
+             <width>1201</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_82">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>190</y>
+             <width>81</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+color:rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Token List</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QFrame" name="frame_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>961</width>
+             <height>161</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(0, 129, 0);
+/*background-color: rgb(76, 126, 130);
+background-color: rgb(47, 82, 223);*/
+background-color: rgb(0, 124, 112);
+border: none; /* No border */  
+padding: 10px;  
+border-radius: 10px; /* Rounded corners */  </string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QCommandLinkButton" name="bitcoin">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>60</y>
+              <width>91</width>
+              <height>48</height>
+             </rect>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {  
+    
+	/*background-color:rgb(133, 218, 226);*/
+	
+	/*background-color: rgb(0, 129, 0);*/
+	
+	background-color: rgb(0, 124, 112);
+    color: rgb(241, 241, 241); /* White text */  
+    border: none; /* No border */  
+    padding: 10px;  
+    border-radius: 10px; /* Rounded corners */  
+}  
+
+QPushButton:hover {  
+    
+	background-color: rgb(0, 152, 137);
+	/*background-color: rgb(0, 156, 0);*/
+	/*background-color: rgb(121, 199, 206);*/
+}  
+</string>
+            </property>
+            <property name="text">
+             <string>Bitcoin</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../btg.png</normaloff>../../btg.png</iconset>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label1">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>30</y>
+              <width>111</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 76, 68);</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label14">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>70</y>
+              <width>131</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 76, 68);</string>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QWidget" name="verticalLayoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>270</x>
+              <y>20</y>
+              <width>681</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout3"/>
+           </widget>
+           <widget class="QLabel" name="label27">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>110</y>
+              <width>131</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 76, 68);</string>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
