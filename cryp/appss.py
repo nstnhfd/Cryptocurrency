@@ -2,13 +2,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from cryp import user, oauth
-# from cryp import models
 from .database import engine
-# models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
-
-origins = ["*"]  # Specify domains that are allowed to access your API
-
+origins = ["*"] 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

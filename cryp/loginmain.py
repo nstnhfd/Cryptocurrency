@@ -8,6 +8,7 @@ from PyQt5 import QtWidgets
 from crypto1 import Window as CryptoWindow
 import sys
 import requests  
+# uvicorn cryp.appss:app --reload
 # pyuic5 -x sub_form_crypto.ui -o sub_form_crypto.py
 # data = yf.download(ticker, start="2021-01-01", end="2025-01-22", cache=True)  
 class Window(QMainWindow):      
@@ -28,8 +29,7 @@ class Window(QMainWindow):
         super(Window, self).__init__()  
         self.ui = Ui_Log_In()          
         self.ui.setupUi(self)
-        self.setWindowTitle("Cryptocurrency")  
-        # self.ui.login.clicked.connect(self.user_login)  
+        self.setWindowTitle("Cryptocurrency")   
         self.ui.createuser.clicked.connect(self.openwindow)  
         self.ui.login.clicked.connect(self.user_login)
 
