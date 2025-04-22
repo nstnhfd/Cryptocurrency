@@ -81,24 +81,24 @@ class Window(QMainWindow):
         headers = {"accept": "application/json"}        
         response = requests.get(url, headers=headers) 
         data = response.json()
-        print(data)
-        # self.ui.aed1.setText(str(data['market_data']['current_price']['aed']))
-        # self.ui.ars1.setText(str(data['market_data']['current_price']['ars']))
+        # print(data)
+        self.ui.aed1.setText(str(data['market_data']['current_price']['aed']))
+        self.ui.ars1.setText(str(data['market_data']['current_price']['ars']))
 
-        # self.ui.aud1.setText(str(data['market_data']['current_price']['aud']))
-        # self.ui.bch1.setText(str(data['market_data']['current_price']['bch']))
+        self.ui.aud1.setText(str(data['market_data']['current_price']['aud']))
+        self.ui.bch1.setText(str(data['market_data']['current_price']['bch']))
 
-        # self.ui.bdt1.setText(str(data['market_data']['current_price']['bdt']))
-        # self.ui.bhd1.setText(str(data['market_data']['current_price']['bhd']))
+        self.ui.bdt1.setText(str(data['market_data']['current_price']['bdt']))
+        self.ui.bhd1.setText(str(data['market_data']['current_price']['bhd']))
 
-        # self.ui.bmd1.setText(str(data['market_data']['current_price']['bmd']))
-        # self.ui.bnb1.setText(str(data['market_data']['current_price']['bnb']))
+        self.ui.bmd1.setText(str(data['market_data']['current_price']['bmd']))
+        self.ui.bnb1.setText(str(data['market_data']['current_price']['bnb']))
 
-        # self.ui.brl1.setText(str(data['market_data']['current_price']['brl']))
-        # self.ui.btc1.setText(str(data['market_data']['current_price']['btc']))
+        self.ui.brl1.setText(str(data['market_data']['current_price']['brl']))
+        self.ui.btc1.setText(str(data['market_data']['current_price']['btc']))
 
-        # self.ui.cad1.setText(str(data['market_data']['current_price']['cad']))
-        # self.ui.chf1.setText(str(data['market_data']['current_price']['chf']))        
+        self.ui.cad1.setText(str(data['market_data']['current_price']['cad']))
+        self.ui.chf1.setText(str(data['market_data']['current_price']['chf']))        
     def get_crypto_price(self, crypto_id='bitcoin'):  
         currency = 'usd'  
     
@@ -113,7 +113,7 @@ class Window(QMainWindow):
             price = data[crypto_id][currency]  
             print(f"The current price of {crypto_id.capitalize()} in {currency.upper()} is: {price}")  
         
-        # Update the label if applicable  
+         
             if self.labels:  # Ensure self.labels is not empty  
                 self.labels[0].setText(f"{price}")  # Assuming you want to update the first label  
             
