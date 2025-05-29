@@ -88,11 +88,11 @@ class Ui_Log_In(object):
 "background-color: transparent;")
         self.label_4.setObjectName("label_4")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(250, 240, 141, 21))
+        self.label_3.setGeometry(QtCore.QRect(270, 240, 141, 21))
         self.label_3.setStyleSheet("background-color:transparent;")
         self.label_3.setObjectName("label_3")
         self.createuser = QtWidgets.QPushButton(self.centralwidget)
-        self.createuser.setGeometry(QtCore.QRect(370, 230, 81, 41))
+        self.createuser.setGeometry(QtCore.QRect(390, 230, 81, 41))
         self.createuser.setStyleSheet("QPushButton {  \n"
 "    background-color:transparent; /* Teal */  \n"
 "    \n"

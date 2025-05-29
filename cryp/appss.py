@@ -16,5 +16,5 @@ app.include_router(user.router)
 app.include_router(oauth.router)
 @app.get("/")
 def root():
-    return {"message": "hello world"}
+    return {"message": "hello world new okkkk bind "}
 

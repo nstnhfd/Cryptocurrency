@@ -60,6 +60,7 @@ class Window(QMainWindow):
         layout_names = [f'verticalLayout{i}' for i in range(3, 16)]
         vertl = [getattr(self.ui, name) for name in layout_names]        
         tickers = ['BIT-USD', 'ETH-USD', 'TET-USD', 'TRO-USD', 'CAR-USD', 'DOG-USD', 'POL-USD', 'SUI-USD', 'STE-USD', 'LIT-USD', 'UNI-USD', 'PEP-USD', 'APT-USD']
+        
         for ticker,v in zip(tickers,vertl): 
           v.addWidget(self.canvas)
           self.plot_data(ticker)  

@@ -14,6 +14,8 @@ jobs:
           SECRET_KEY: ${{secrets.SEKRET_KEY}}
           ALGORITHM: ${{secrets.ALGORITHM}}
           ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
+        
+              
         runs-on : ubuntu-latest
         steps:
             - name: pulling git repo
