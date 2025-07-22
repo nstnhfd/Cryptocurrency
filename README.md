@@ -1,7 +1,7 @@
 # Cryptocurrency
 cryptocurrency using pyqt5 and fastapi
 # Movie
-https://github.com/user-attachments/assets/abbbd584-e9ca-4314-8b53-256304062a9a
+loadind...
 # Description
 - by this app you can see cryptoes
 - app show:
