@@ -7,6 +7,16 @@ loadind...
   
 # Features
 - [x] Based on Python 3.13: For botting on any operating system - Windows , linux
+⚡ FastAPI for the Python backend API
+  🧰 SQLModel for the Python SQL database interactions (ORM).
+  🔍 Pydantic, used by FastAPI, for the data validation and settings management.
+🎨 Pyqt5 for frontend
+🐋 Docker Compose for development and production.
+🔒 Secure password hashing by default.
+🔑 JWT (JSON Web Token) authentication.
+📫 Email based password recovery.
+✅ Tests with Pytest.
+🏭 CI (continuous integration) and CD (continuous deployment) based on GitHub Actions.
 - [x] Persistence: Persistence is achieved through postgresql.
 - [x] Create User and Log in
 - [x] cryptoes you can get price and plot:
