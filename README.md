@@ -7,7 +7,7 @@ loadind...
   
 # Features
 - [x] Based on Python 3.13: For botting on any operating system - Windows , linux
-⚡ FastAPI for the Python backend API
+- ⚡ FastAPI for the Python backend API
   🧰 SQLModel for the Python SQL database interactions (ORM).
   🔍 Pydantic, used by FastAPI, for the data validation and settings management.
 🎨 Pyqt5 for frontend
