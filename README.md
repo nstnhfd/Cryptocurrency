@@ -7,6 +7,11 @@ loadind...
   
 # Features
 - [x] Based on Python 3.11+: For botting on any operating system - Windows , linux
+- [x] Persistence: Persistence is achieved through postgresql.
+- [x] Create User and Log in
+- [x] cryptoes you can get price and plot:
+      'bitcoin', 'ethereum',   'tether','tron','cardano','dogcoin','polkadot','sui','stellar','litecoin','uniswap','pepe','aptos'      
+    
 - by this app you can see cryptoes
 app shows:
 - 
